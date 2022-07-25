@@ -1,5 +1,6 @@
 import React from "react";
 import medialuna from "../images/medialuna.jpg"
+import CartWidget from "./CartWidget";
 const imagen='/medialunas.jpg'
 const NavBar = () => {
   return (
@@ -12,6 +13,7 @@ const NavBar = () => {
       <button class="btn btnPersonalizado" >Contacto</button>
       <button class="btn btnPersonalizado" type="submit"> Login </button>
       <img src={medialuna} alt="" width="40" height="30" class="d-inline-block "/>
+      <CartWidget/>
     </div>
   );
 };

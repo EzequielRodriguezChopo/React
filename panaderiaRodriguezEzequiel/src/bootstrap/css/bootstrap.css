@@ -85,12 +85,19 @@
     scroll-behavior: smooth;
   }
 }
+
 .estiloNavAlinear{
   padding-left: 5vw;
   padding-right: 5vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.alineacionItems{
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 body {
   margin: 0;
@@ -609,9 +616,9 @@ progress {
 }
 
 .img-thumbnail {
-  padding: 0.25rem;
+  padding: 0.05rem;
   background-color: #fff;
-  border: 1px solid var(--bs-border-color);
+  border: 1px solid #a18900;
   border-radius: 0.375rem;
   max-width: 100%;
   height: auto;
@@ -4202,7 +4209,7 @@ textarea.form-control-lg {
   --bs-card-spacer-x: 1rem;
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
-  --bs-card-border-color: var(--bs-border-color-translucent);
+  --bs-card-border-color: #a18900;
   --bs-card-border-radius: 0.375rem;
   --bs-card-box-shadow: ;
   --bs-card-inner-border-radius: calc(0.375rem - 1px);
@@ -4215,7 +4222,7 @@ textarea.form-control-lg {
   --bs-card-bg: #fff;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
-  position: relative;
+  position:relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -4322,7 +4329,7 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  width: 80%;
 }
 
 .card-img,
