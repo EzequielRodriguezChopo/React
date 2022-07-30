@@ -1,7 +1,7 @@
 import React from "react";
 import medialuna from "../images/medialuna.jpg"
 import CartWidget from "./CartWidget";
-const imagen='/medialunas.jpg'
+
 const NavBar = () => {
   return (
    
