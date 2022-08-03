@@ -7,7 +7,7 @@ const ItemList = ({ products }) => {
   return (
     <>
       
-      {products.map((producto, i) => (
+      {products.map((producto) => (
         <Item
           key={producto.id}
           titulo={producto.titulo}
@@ -21,5 +21,5 @@ const ItemList = ({ products }) => {
   );
 };
 
-export default ItemList;
+export default ItemList; 
 
