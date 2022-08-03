@@ -1,6 +1,7 @@
 import React from 'react'
 import ItemCount from './ItemCount';
 
+
 const Item = ({id,titulo,descripcion,precio,stock,imagen}) => {
   return (
     <>
@@ -14,12 +15,12 @@ const Item = ({id,titulo,descripcion,precio,stock,imagen}) => {
             <ItemCount stock={stock}/>
           </div>
           <a href="#" class="btn btnPersonalizado">
-            Comprar
+            Ver detalles
           </a>
         </div>
       </div>
     </>
   );
 }
-
+ 
 export default Item

@@ -1,6 +1,8 @@
 
 import "./App.css";
-import ItenListContainer from "./components/NavBar/ItenListContainer";
+import ItemDetailContainer from "./components/Items/ItemDetailContainer";
+import ItenListContainer from "./components/Items/ItenListContainer";
+
 import NavBar from "./components/NavBar/NavBar";
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
     <div>
       <NavBar />
       <div class="alineacionItems">
-        <ItenListContainer/>
+        <ItemDetailContainer/>
       </div>
     </div>
   );
