@@ -1,20 +1,17 @@
 import React from "react";
 import medialuna from "../images/medialuna.jpg"
 import CartWidget from "./CartWidget";
-
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
-   
-    <div class="estiloNavAlinear">
-      <img src={medialuna} alt="" width="40" height="30" class="d-inline-block "/>
-      <button class="btn btnPersonalizado" type="submit"> Inicio </button>
-      <button class="btn btnPersonalizado" >Productos</button>
-      <button class="btn btnPersonalizado" >Nosotros</button>
-      <button class="btn btnPersonalizado" >Contacto</button>
-      <button class="btn btnPersonalizado" type="submit"> Login </button>
-      <img src={medialuna} alt="" width="40" height="30" class="d-inline-block "/>
-      <CartWidget/>
+    <div className="estiloNavAlinear">
+       <img src={medialuna} alt="" width="40" height="30" class="d-inline-block "/>
+       <Link class="btn btnPersonalizado" to="/">Inicio</Link>
+       <Link class="btn btnPersonalizado" to="/category">Producto</Link>
+       <Link class="btn btnPersonalizado" to="/item/">Detalle de un Producto</Link>
+       <img src={medialuna} alt="" width="40" height="30" class="d-inline-block "/>
+       <CartWidget />
     </div>
-  );
+ );
 };
 export default NavBar;
