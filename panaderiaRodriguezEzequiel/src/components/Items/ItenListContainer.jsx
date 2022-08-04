@@ -18,24 +18,24 @@ const ItenListContainer = () => {
   useEffect(() => {
 
     let productosHarcodeados =[
-    {id: 1, titulo: "Medialunas", descripcion: "Estan hechas sin Tacc", precio: "60$", stock: "6", imagen: imagen1},
-    {id: 2, titulo: "Biscochitos", descripcion: "Estan hechas con grasa", precio: "80$", stock: "7", imagen: imagen2},
-    {id: 3, titulo: "Chipacitos", descripcion: "Son Ligth", precio: "90$", stock: "4", imagen: imagen3},
-    {id: 4, titulo: "Torta", descripcion: "De dulce de Batata", precio: "100$", stock: "5", imagen: imagen4}];
-
-    const miPromesa = new Promise((resolve, reject) => {
-      setTimeout(() => { 
-         if (lecturaBaseDeDatos) {
-            if (!id) {
-               resolve(productosHarcodeados); 
-            } else {
-               resolve(productosHarcodeados.filter((producto)=>producto.id == id))
-            }
-            resolve(productosHarcodeados);
-         } else {
-            reject("No se pudo leer la base de datos");
-         }
-        },2000)
+      {id: 1, titulo: "Medialunas", descripcion: "Estan hechas sin Tacc", precio: "60$", stock: "6", imagen: imagen1, categoria:"diet"},
+      {id: 2, titulo: "Biscochitos", descripcion: "Estan hechas con grasa", precio: "80$", stock: "7", imagen: imagen2, categoria:"fat"},
+      {id: 3, titulo: "Chipacitos", descripcion: "Son Ligth", precio: "90$", stock: "4", imagen: imagen3, categoria:"diet"},
+      {id: 4, titulo: "Torta", descripcion: "De dulce de Batata", precio: "100$", stock: "5", imagen: imagen4, categoria:"diet"}];
+  
+      const miPromesa = new Promise((resolve, reject) => {
+        setTimeout(() => { 
+           if (lecturaBaseDeDatos) {
+              if (!id) {
+                 resolve(productosHarcodeados); 
+              } else {
+                 resolve(productosHarcodeados.filter((producto)=>producto.categoria == id))
+              }
+              resolve(productosHarcodeados);
+           } else {
+              reject("No se pudo leer la base de datos");
+           }
+          },2000)
       })
      
     miPromesa.then((res)=>{   //Aca es cuando se cumple mi promesa, manda los productos a render
