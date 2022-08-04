@@ -8,7 +8,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     count < stock ? setCount(count + 1) : setCount(stock);
     if (count != stock) {
       onAdd();
-    }
+    } 
   };
   const restador = () => {
     count <= 1 ? setCount(initial) : setCount(count - 1);
