@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import simboloSuma from "../images/SimboloSuma.png";
 import simboloResta from "../images/SimboloResta.png";
-const ItemCount = ({ stock }) => {
-  const [count, setCount] = useState(0);
+const ItemCount = ({ stock, initial, onAdd }) => {
+  const [count, setCount] = useState(initial);
   const sumador = () => {
     count < stock ? setCount(count + 1) : setCount(stock);
-    console.log("Estoy sumando");
+    if (count != stock) {
+      onAdd();
+    }
   };
   const restador = () => {
-    count <= 0 ? setCount(0) : setCount(count - 1);
-    console.log("Estoy restando");
+    count <= 1 ? setCount(initial) : setCount(count - 1);
   };
   return (
     <div class="contadorDeStock">
@@ -29,9 +30,3 @@ const ItemCount = ({ stock }) => {
 };
 
 export default ItemCount;
-{
-  /*<button class="" onClick={() => setCount(count - 1)}><img src={simboloResta} alt="" width="30" height="20" /></button>
-<div>{count}</div>
-<button class="" onClick={() => setCount(count + 1)}><img src={simboloSuma} alt="" width="30" height="20" /></button>
-*/
-}
