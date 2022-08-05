@@ -104,7 +104,8 @@
 }
 .alineacionItems{
   padding-top: 30px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
   flex-direction: row;
   justify-content: center;
 }
@@ -4274,6 +4275,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-card-border-radius);
 }
 .card {
+  margin: 10px;
   --bs-card-spacer-y: 1rem;
   --bs-card-spacer-x: 1rem;
   --bs-card-title-spacer-y: 0.5rem;

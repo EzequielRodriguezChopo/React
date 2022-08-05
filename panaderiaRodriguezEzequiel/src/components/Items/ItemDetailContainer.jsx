@@ -3,7 +3,12 @@ import { useState, useEffect } from "react";
 import imagen1 from "../images/medialuna.png";
 import imagen2 from "../images/bizcochos.jpeg";
 import imagen3 from "../images/chipa.jpeg";
-import imagen4 from "../images/pastafrola.jpg";
+import imagen4 from "../images/torta.jpg";
+import imagen5 from "../images/cremona.jpeg";
+import imagen6 from "../images/facturas.jpg";
+import imagen7 from "../images/sanguchesDeMiga.jpeg";
+import imagen8 from "../images/pastafrola.jpg";
+import imagen9 from "../images/tortaDeRicota.jpg";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
@@ -15,10 +20,9 @@ const ItemDetailContainer = () => {
          {
             id: 1,
             titulo: "Medialunas",
-            descripcion: "s son panes con masa enriquecida con huevo y mantequilla, en este caso el uso de una mantequilla de excelente sabor y hecha con cuidado es fundamental para el resultado final",
+            descripcion: "Son panes con masa enriquecida con huevo y mantequilla, en este caso el uso de una mantequilla de excelente sabor y hecha con cuidado es fundamental para el resultado final",
             precio: "60$",
-            stock: "6",
-            imagen: imagen1,
+            imagen: imagen1
          },
          {
             id: 2,
@@ -26,25 +30,57 @@ const ItemDetailContainer = () => {
             descripcion:
                "Estos bizcochos se elaboran mezclando ingredientes como huevos, harina, leche, manteca y azúcar y cociendo la mezcla en un horno",
             precio: "80$",
-            stock: "7",
-            imagen: imagen2,
+            imagen: imagen2
          },
          {
             id: 3,
             titulo: "Chipacitos",
             descripcion: "Preparado ancestral, un pan elaborado con almidón de mandioca (yuca), huevos y mucho queso, tradicional de la cultura guaraní y popular en Argentina, Paraguay y Brasil.",
             precio: "90$",
-            stock: "4",
-            imagen: imagen3,
+            imagen: imagen3
          },
          {
             id: 4,
             titulo: "Torta",
             descripcion: "Pastel tradicionalmente redondo compuesto de una o más capas de masa dulce cocida al horno, rellenadas y decoradas con crema (pastelera, trufa, nata), fruta, chocolate u otros ingredientes.",
             precio: "100$",
-            stock: "5",
-            imagen: imagen4,
+            imagen: imagen4
          },
+         {
+            id: 5,
+            titulo: "Cremona",
+            descripcion: "Pastel tradicionalmente redondo compuesto de una o más capas de masa dulce cocida al horno, rellenadas y decoradas con crema (pastelera, trufa, nata), fruta, chocolate u otros ingredientes.",
+            precio: "100$",
+            imagen: imagen5
+         },
+         {
+            id: 6,
+            titulo: "Facturas",
+            descripcion: "Pastel tradicionalmente redondo compuesto de una o más capas de masa dulce cocida al horno, rellenadas y decoradas con crema (pastelera, trufa, nata), fruta, chocolate u otros ingredientes.",
+            precio: "100$",
+            imagen: imagen6
+         },
+         {
+            id: 7,
+            titulo: "Sanguches de miga",
+            descripcion: "Pastel tradicionalmente redondo compuesto de una o más capas de masa dulce cocida al horno, rellenadas y decoradas con crema (pastelera, trufa, nata), fruta, chocolate u otros ingredientes.",
+            precio: "100$",
+            imagen: imagen7
+         },
+         {
+            id: 8,
+            titulo: "Pasta frola",
+            descripcion: "Pastel tradicionalmente redondo compuesto de una o más capas de masa dulce cocida al horno, rellenadas y decoradas con crema (pastelera, trufa, nata), fruta, chocolate u otros ingredientes.",
+            precio: "100$",
+            imagen: imagen8
+         },
+         {
+            id: 9,
+            titulo: "Torta de ricota",
+            descripcion: "Pastel tradicionalmente redondo compuesto de una o más capas de masa dulce cocida al horno, rellenadas y decoradas con crema (pastelera, trufa, nata), fruta, chocolate u otros ingredientes.",
+            precio: "100$",
+            imagen: imagen9
+         }
       ];
       const miPromesa = new Promise((resolve, reject) => {
          setTimeout(() => {

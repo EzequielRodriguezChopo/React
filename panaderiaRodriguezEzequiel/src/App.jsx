@@ -17,7 +17,7 @@ function App() {
           <Route path="*" element={<p>404</p>} />
        </Routes>
        <br />
-       <h6>Aca va el Footer</h6>
+       <h6> Panaderia los Abuelos - 2022 - Desarrollado por Rodriguez Ezequiel</h6>
     </BrowserRouter>
  </>
   );

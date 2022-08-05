@@ -9,6 +9,7 @@ const ItemList = ({ products, initial, onAdd }) => {
       
       {products.map((producto) => (
         <Item
+        id={producto.id}
           key={producto.id}
           titulo={producto.titulo}
           descripcion={producto.descripcion}
