@@ -6,12 +6,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
   const sumador = () => {
     count < stock ? setCount(count + 1) : setCount(stock);
+    if (count != stock) {
+      onAdd();
+    } 
   };
   const restador = () => {
     count <= 1 ? setCount(initial) : setCount(count - 1);
   };
-
-
   return (
     <div class="contadorDeStock">
       <div class="BtnSumRest">
@@ -23,7 +24,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           <img src={simboloSuma} alt="" width="30" height="20" />
         </button>
       </div>
-      <div class="btn btnPersonalizado" onClick={onAdd}>Agregar a carrito</div>
+      <Link class="btn btnPersonalizado" to="/">Volver</Link>
     </div>
   );
 };
