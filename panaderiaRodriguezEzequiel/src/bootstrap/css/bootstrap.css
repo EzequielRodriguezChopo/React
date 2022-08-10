@@ -87,7 +87,11 @@
 }
 .estiloImagen{
   height: 10vw;
-  margin: 15px;
+  margin: 20px;
+}
+.estiloImagen2{
+  height: 15vw;
+  margin: 20px;
 }
 .contadorDeStock{
 
@@ -3033,7 +3037,7 @@ textarea.form-control-lg {
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:space-evenly;
   --bs-btn-color: black;
   --bs-btn-border-color: #a18900;
   --bs-btn-hover-color: rgb(139, 102, 0);
