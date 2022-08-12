@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import simboloSuma from "../images/SimboloSuma.png";
 import simboloResta from "../images/SimboloResta.png";
-import { Link } from "react-router-dom";
+
+
+
+
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
   const sumador = () => {
@@ -11,7 +14,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     count <= 1 ? setCount(initial) : setCount(count - 1);
   };
 
-
+ 
   return (
     <div class="contadorDeStock">
       <div class="BtnSumRest">
@@ -23,7 +26,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           <img src={simboloSuma} alt="" width="30" height="20" />
         </button>
       </div>
-      <div class="btn btnPersonalizado" onClick={onAdd}>Agregar a carrito</div>
+      <div class="btn btnPersonalizado" onClick={onAdd} >Agregar a carrito</div>
     </div>
   );
 };
