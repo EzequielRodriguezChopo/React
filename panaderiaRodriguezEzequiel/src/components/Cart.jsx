@@ -1,14 +1,10 @@
-import React, {useContext} from "react";
-import { myContext } from "./CartContext";
+import React from "react";
+
 
 const Cart = () => {
-
-  const {countItems} = useContext(myContext) 
-  let numero=9 
   return (
     <div >
-      {countItems(numero)} 
-        <h2>Soy en carrito</h2>
+        <h2>Soy el carrito</h2>
     </div>
  );
 };

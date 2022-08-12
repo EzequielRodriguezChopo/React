@@ -26,7 +26,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           <img src={simboloSuma} alt="" width="30" height="20" />
         </button>
       </div>
-      <div class="btn btnPersonalizado" onClick={onAdd} >Agregar a carrito</div>
+      <div class="btn btnPersonalizado" onClick={()=>{onAdd(count)}} >Agregar a carrito</div>
     </div>
   );
 };

@@ -1,42 +1,53 @@
 import React from "react";
 import { createContext, useState } from "react";
-import ItemCount from "./Items/ItemCount";
 
 export const myContext = createContext();
 
 const CartContext = ({ children }) => {
    const [carrito, setCarrito] = useState([]);
-   const [count, setCount] = useState(0)
-   let arrayCopia = [...carrito];
-
-   const addItem = (obj, count) => {
-    const nuevoCarrito = carrito.filter(product => product.id !== item.id);
-    nuevoCarrito.push({...obj, cantidad: nuevaCantidad});
-    setCarrito(nuevoCarrito)
+  
+   const addItem = (product, cantidad) => {
+  
+       if (carrito.find(producto=>producto.id==product.id)) {
+         setCarrito(carrito.map(producto => {
+            return producto.id == product.id ? { ...producto, cantidad: (producto.cantidad + cantidad) }: producto;})
+      );
+      alert('Esta en el carrito')
+         
+      } else {
+         setCarrito([...carrito, { ...product, cantidad:cantidad }]);
+      alert('No esta en el carrito')
+      }
+  
+console.log('carrito',carrito);
 
    };
+   const removeItem = (id) => {
+      //Remueve el item del carrito segun su id
+      setCarrito(carrito.filter((product) => product.id !== id));
+   };
 
-   const removeItem = (id) =>{          //Remueve el item del carrito segun su id
-    setCarrito(carrito.filter(product => product.id !== id ))
-   }
+   const isInCart = (id) => {
+      //Para saber si el producto ya esta en carrito
+      carrito.find(producto => producto.id === id)? true : false;
+   };
 
-   const countItems = (count) =>{
-       return count
-   }
-
-   const isInCart = (id) => {           //Para saber si el producto ya esta en carrito
-    const found = arrayCopia.find((id) => (id.arrayCopia = id));
-    if (found) return true;
-    return false;
- };
-   
-   const clear = () =>{         //Funcion que borra todo el carrito
-    setCarrito([]);
-   }
+   const clear = () => {
+      //Funcion que borra todo el carrito
+      setCarrito([]);
+   };
 
    return (
       <>
-         <myContext.Provider value={{ carrito, addItem , countItems, removeItem, isInCart, clear}}>
+         <myContext.Provider
+            value={{
+               carrito,
+               addItem,
+               removeItem,
+               isInCart,
+               clear,
+            }}
+         >
             <div>{children}</div>
          </myContext.Provider>
       </>
