@@ -5,7 +5,7 @@ export const myContext = createContext();
 
 const CartContext = ({ children }) => {
    const [carrito, setCarrito] = useState([]);
-  
+ 
    const addItem = (product, cantidad) => {
   
        if (carrito.find(producto=>producto.id==product.id)) {
@@ -18,10 +18,11 @@ const CartContext = ({ children }) => {
          setCarrito([...carrito, { ...product, cantidad:cantidad }]);
       alert('No esta en el carrito')
       }
-  
+
 console.log('carrito',carrito);
 
    };
+
    const removeItem = (id) => {
       //Remueve el item del carrito segun su id
       setCarrito(carrito.filter((product) => product.id !== id));
