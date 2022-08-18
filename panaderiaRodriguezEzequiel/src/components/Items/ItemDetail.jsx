@@ -21,11 +21,11 @@ const ItemDetail = ({ product }) => {
             <div class="espacio">
                <h4 class="card-title">{product.titulo}</h4>
                <p class="card-text">{product.descripcion}</p>
-               <h5 class="card-title">{product.precio}</h5>
+               <h5 class="card-title">{product.precio}$</h5>
                <br />
                {carrito ? (
                <Link to="/cart">
-                       <div class="btn btnPersonalizado" onClick={()=>{addItem(product,count)}} >Comprar</div>
+                       <div class="btn btnPersonalizado" onClick={()=>{addItem(product,count)}} >Terminar compra</div>
                </Link>) 
                : (<ItemCount stock={product.stock} initial={initial} onAdd={onAdd}/>)}
             </div>

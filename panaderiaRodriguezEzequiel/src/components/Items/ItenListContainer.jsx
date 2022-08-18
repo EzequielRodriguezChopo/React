@@ -15,7 +15,6 @@ const lecturaBaseDeDatos=true
 const ItenListContainer = () => {
   const [initial, setInitial] = useState(1);
   const { id } = useParams();
-  console.log(id);
   const onAdd = () => {
     alert("Agregaste un producto exitosamente")
   };
@@ -23,15 +22,15 @@ const ItenListContainer = () => {
   useEffect(() => {
 
     let productosHarcodeados =[
-    {id: 1, titulo: "Medialunas", precio: "60$", stock: "6", imagen: imagen1, categoria:"SinTacc"},
-    {id: 2, titulo: "Biscochitos", precio: "80$", stock: "7", imagen: imagen2, categoria:"ConTacc"},
-    {id: 3, titulo: "Chipacitos", precio: "90$", stock: "4", imagen: imagen3, categoria:"SinTacc"},
-    {id: 4, titulo: "Torta", precio: "100$", stock: "5", imagen: imagen4, categoria:"SinTacc"},
-    {id: 5, titulo: "Cremona", precio: "90$", stock: "4", imagen: imagen5, categoria:"ConTacc"},
-    {id: 6, titulo: "Facturas", precio: "90$", stock: "4", imagen: imagen6, categoria:"SinTacc"},
-    {id: 7, titulo: "Sanguches de miga", precio: "90$", stock: "4", imagen: imagen7, categoria:"ConTacc"},
-    {id: 8, titulo: "Pasta frola", precio: "90$", stock: "4", imagen: imagen8, categoria:"SinTacc"},
-    {id: 9, titulo: "Torta de ricota", precio: "90$", stock: "4", imagen: imagen9, categoria:"ConTacc"},
+    {id: 1, titulo: "Medialunas", precio: "60", stock: "6", imagen: imagen1, categoria:"SinTacc"},
+    {id: 2, titulo: "Biscochitos", precio: "80", stock: "7", imagen: imagen2, categoria:"ConTacc"},
+    {id: 3, titulo: "Chipacitos", precio: "90", stock: "4", imagen: imagen3, categoria:"SinTacc"},
+    {id: 4, titulo: "Torta", precio: "100", stock: "5", imagen: imagen4, categoria:"SinTacc"},
+    {id: 5, titulo: "Cremona", precio: "90", stock: "4", imagen: imagen5, categoria:"ConTacc"},
+    {id: 6, titulo: "Facturas", precio: "90", stock: "4", imagen: imagen6, categoria:"SinTacc"},
+    {id: 7, titulo: "Sanguches de miga", precio: "90", stock: "4", imagen: imagen7, categoria:"ConTacc"},
+    {id: 8, titulo: "Pasta frola", precio: "90", stock: "4", imagen: imagen8, categoria:"SinTacc"},
+    {id: 9, titulo: "Torta de ricota", precio: "90", stock: "4", imagen: imagen9, categoria:"ConTacc"},
 ];
 
     const miPromesa = new Promise((resolve, reject) => {

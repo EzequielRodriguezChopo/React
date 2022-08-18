@@ -26,6 +26,7 @@ console.log('carrito',carrito);
    const removeItem = (id) => {
       //Remueve el item del carrito segun su id
       setCarrito(carrito.filter((product) => product.id !== id));
+      console.log(carrito);
    };
 
    const isInCart = (id) => {
@@ -43,12 +44,13 @@ console.log('carrito',carrito);
          <myContext.Provider
             value={{
                carrito,
+               setCarrito,
                addItem,
                removeItem,
                isInCart,
                clear,
             }}
-         >
+     >
             <div>{children}</div>
          </myContext.Provider>
       </>
