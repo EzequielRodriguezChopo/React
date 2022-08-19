@@ -1,21 +1,47 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import imagen1 from "../images/medialuna.png";
-import imagen2 from "../images/bizcochos.jpeg";
-import imagen3 from "../images/chipa.jpeg";
-import imagen4 from "../images/torta.jpg";
-import imagen5 from "../images/cremona.jpeg";
-import imagen6 from "../images/facturas.jpg";
-import imagen7 from "../images/sanguchesDeMiga.jpeg";
-import imagen8 from "../images/pastafrola.jpg";
-import imagen9 from "../images/tortaDeRicota.jpg";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+
+//import imagen1 from "../images/medialuna.png";
+//import imagen2 from "../images/bizcochos.jpeg";
+//import imagen3 from "../images/chipa.jpeg";
+//import imagen4 from "../images/torta.jpg";
+//import imagen5 from "../images/cremona.jpeg";
+//import imagen6 from "../images/facturas.jpg";
+//import imagen7 from "../images/sanguchesDeMiga.jpeg";
+//import imagen8 from "../images/pastafrola.jpg";
+//import imagen9 from "../images/tortaDeRicota.jpg";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
    const [product, setProduct] = useState([]);
    const [error, setError] = useState(false);
-   const { id } = useParams();
+  const { id } = useParams();
+//   const id = 'klf6s9ME3n3zqUq8o1We'
    useEffect(() => {
+      const db = getFirestore();
+      const collectionProducts = collection(db,"productos")
+      getDocs(collectionProducts).then((res)=>{
+  
+          let productsOrdened = res.docs;
+          productsOrdened = productsOrdened.map((producto)=>{
+              return({id:producto.id,...producto.data()})
+          })  
+          setProduct(productsOrdened.find((e) => e.id == id))
+
+      });     
+   }, []); 
+   return (
+      <>
+         <ItemDetail product={product} />
+      </>
+   );
+};
+
+export default ItemDetailContainer;
+
+/*
+
       let productosHarcodeados = [
          {  id: 1, titulo: "Medialunas", descripcion: "Son panes con masa enriquecida con huevo y mantequilla, en este caso el uso de una mantequilla de excelente sabor y hecha con cuidado es fundamental para el resultado final",
             precio: "60", imagen: imagen1, stock: "6"
@@ -67,12 +93,5 @@ const ItemDetailContainer = () => {
          .catch((error) => {
             setError(true);
          });
-   }, []); 
-   return (
-      <>
-         <ItemDetail product={product} />
-      </>
-   );
-};
 
-export default ItemDetailContainer;
+*/

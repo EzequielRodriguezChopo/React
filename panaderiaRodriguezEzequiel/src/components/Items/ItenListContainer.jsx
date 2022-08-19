@@ -1,17 +1,18 @@
 import React from "react";
 import ItemList from "./ItemList";
 import { useState, useEffect } from "react";
-import imagen1 from "../images/medialuna.png";
-import imagen2 from "../images/bizcochos.jpeg";
-import imagen3 from "../images/chipa.jpeg";
-import imagen4 from "../images/torta.jpg";
-import imagen5 from "../images/cremona.jpeg";
-import imagen6 from "../images/facturas.jpg";
-import imagen7 from "../images/sanguchesDeMiga.jpeg";
-import imagen8 from "../images/pastafrola.jpg";
-import imagen9 from "../images/tortaDeRicota.jpg";
+//import imagen1 from "../images/medialuna.png";
+//import imagen2 from "../images/bizcochos.jpeg";
+//import imagen3 from "../images/chipa.jpeg";
+//import imagen4 from "../images/torta.jpg";
+//import imagen5 from "../images/cremona.jpeg";
+//import imagen6 from "../images/facturas.jpg";
+//import imagen7 from "../images/sanguchesDeMiga.jpeg";
+//import imagen8 from "../images/pastafrola.jpg";
+//import imagen9 from "../images/tortaDeRicota.jpg";
 import { useParams } from "react-router-dom";
-const lecturaBaseDeDatos=true 
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+
 const ItenListContainer = () => {
   const [initial, setInitial] = useState(1);
   const { id } = useParams();
@@ -20,6 +21,48 @@ const ItenListContainer = () => {
   };
   const [products, setProducts] = useState([]);
   useEffect(() => {
+
+    const db = getFirestore();
+    const collectionProducts = collection(db,"productos")
+    getDocs(collectionProducts).then((res)=>{
+
+        let productsOrdened = res.docs;
+        productsOrdened = productsOrdened.map((producto)=>{
+            return({id:producto.id,...producto.data()})
+        })  
+        if (!id) {
+          setProducts(productsOrdened); 
+       } else {
+        setProducts(productsOrdened.filter((producto)=>producto.categoria == id))
+       }
+
+    });     
+  },[id])
+
+  return (
+    <>
+         <div className="alineacionItems">
+         <ItemList products={products} initial={initial} onAdd={onAdd} />
+         </div>
+    </>
+  );
+};
+
+export default ItenListContainer; 
+/*
+
+   const db = getFirestore();
+      const collectionProducts = collection(db,"productos")
+      getDocs(collectionProducts).then((res)=>{
+  
+          let productsOrdened = res.docs;
+          productsOrdened = productsOrdened.map((producto)=>{
+              return({id:producto.id,...producto.data()})
+          })  
+          setProduct(productsOrdened.find((e) => e.id == id))
+
+      });     
+
 
     let productosHarcodeados =[
     {id: 1, titulo: "Medialunas", precio: "60", stock: "6", imagen: imagen1, categoria:"SinTacc"},
@@ -51,15 +94,5 @@ const ItenListContainer = () => {
     miPromesa.then((res)=>{   //Aca es cuando se cumple mi promesa, manda los productos a render
       setProducts(res)
     });
-  },[id])
 
-  return (
-    <>
-         <div className="alineacionItems">
-            <ItemList products={products} initial={initial} onAdd={onAdd} />
-         </div>
-    </>
-  );
-};
-
-export default ItenListContainer; 
+*/
