@@ -11,12 +11,9 @@ const CartContext = ({ children }) => {
        if (carrito.find(producto=>producto.id==product.id)) {
          setCarrito(carrito.map(producto => {
             return producto.id == product.id ? { ...producto, cantidad: (producto.cantidad + cantidad) }: producto;})
-      );
-      alert('Esta en el carrito')
-         
+      );         
       } else {
          setCarrito([...carrito, { ...product, cantidad:cantidad }]);
-      alert('No esta en el carrito')
       }
 
 console.log('carrito',carrito);

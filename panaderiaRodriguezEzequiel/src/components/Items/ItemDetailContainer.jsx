@@ -1,6 +1,9 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { collection, getDocs, getFirestore, addDoc, doc, updateDoc} from "firebase/firestore";
+import React, { useContext } from "react";
+import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import { myContext } from "../CartContext";
 
 //import imagen1 from "../images/medialuna.png";
 //import imagen2 from "../images/bizcochos.jpeg";
@@ -11,13 +14,29 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 //import imagen7 from "../images/sanguchesDeMiga.jpeg";
 //import imagen8 from "../images/pastafrola.jpg";
 //import imagen9 from "../images/tortaDeRicota.jpg";
-import ItemDetail from "./ItemDetail";
-import { useParams } from "react-router-dom";
+
 const ItemDetailContainer = () => {
    const [product, setProduct] = useState([]);
-   const [error, setError] = useState(false);
   const { id } = useParams();
-//   const id = 'klf6s9ME3n3zqUq8o1We'
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [email, setEmail] = useState("");
+  const [idOrder, setIdOrder] = useState("");
+  let { carrito } = useContext(myContext);
+  
+/*  const terminarcompra = () => {
+
+   const order = {
+      buyer: { name, tel, email },
+      items: carrito,
+      total: 800 /* Total */
+  /* };
+   const db = getFirestore();
+   const refCollection = collection(db, "orders");
+   addDoc(refCollection, order).then((res) => {
+      setIdOrder(res.id);
+   });
+};*/
    useEffect(() => {
       const db = getFirestore();
       const collectionProducts = collection(db,"productos")
@@ -34,6 +53,9 @@ const ItemDetailContainer = () => {
    return (
       <>
          <ItemDetail product={product} />
+         <>
+
+      </>
       </>
    );
 };
