@@ -28,4 +28,4 @@ a medida que avancemos le dare mas estilos
 
 ## Preview
 
-Puede ser el Git o el Deployd
+Puede ser en el Hosting URL: https://react-2022-428db.web.app
