@@ -5,12 +5,15 @@ import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart";
 import CartContext from "./components/CartContext";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
    return (
       <>
          <CartContext>
             <BrowserRouter>
+               <Header/>
                <NavBar />
                <Routes>
                   <Route path="/" element={<ItenListContainer />} />
@@ -19,12 +22,7 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
                   <Route path="*" element={<p>404</p>} />
                </Routes>
-               <br />
-               <br />
-               <h6>
-                  Panaderia los Abuelos - 2022 - Desarrollado por Rodriguez
-                  Ezequiel
-               </h6>
+               <Footer/>
             </BrowserRouter>
          </CartContext>
       </>
